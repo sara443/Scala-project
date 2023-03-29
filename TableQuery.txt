@@ -1,0 +1,11 @@
+CREATE TABLE mydatabase.output_table (
+  timestamps varchar(100),
+  product_name varchar(100),
+  expiry_date varchar(100),
+  quantity int,
+  unit_price double(10,2),
+  channels varchar(100),
+  payment_method varchar(100),
+  discount double(10,2),
+  final_price double(10,2)
+);
