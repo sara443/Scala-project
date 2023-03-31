@@ -23,5 +23,5 @@ Team
 This project was completed by the following team members:
 Mohamed Ahmed Fathy
 ,Sara Salah
-,Islam Younis
+,Islam Younis ,
 We hope that our project will provide an example of how to use functional programming in Scala to handle complex data processing tasks. Please feel free to contact us if you have any questions or feedback.
