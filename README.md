@@ -1,29 +1,27 @@
-Scala Project that keep a listener on folder, to read all the files uploaded in a certain folder any time and adding discount depending on the qualification each row qualifies to and final price after discount then printing it into database.
+Scala Project
+This project is designed to keep a listener on a specified folder, read all files uploaded to that folder, apply discounts to each row based on specific qualifications, calculate the final price after discount, and store the resulting data in a MySQL database.
 
+File Processing
+The project uses a watcher to read all files copied to the specified folder path. The watcher is always open and can read any amount of files. Each file is processed individually with the following steps:
 
-**For reading files:
-- opening a watcher that reads all the file copied to the folder in the path , and be always opened
-- reading any amount of files copied 
-- looping over those files, to process each file 1 by 1
-- putting try - catch to be able incase reading any file had exception, to retry it 3 times, if failed, just skip it and read the next without closing
-- applying the function of discount on each row 
-- applying the function of final price which is calculated upon the final discount
-- applying function to add a message into log file
-- adding those 2 columns on data
-- opening connection with MySql database
-- writing the final data into table in the database
-- rest the key to be able to read more files
+A try-catch block is used to read each file. If a file reading exception occurs, the program will retry reading the file three times. If it still fails, the program will skip the file and move to the next one without closing the watcher.
+The discount function is applied to each row of the file.
+The final price is calculated for each row based on the final discount.
+A log file message is added to each row of data.
+The resulting data is written to a table in the MySQL database.
+The watcher is reset to read more files.
+Discount Function
+The project includes six qualification rules that determine whether a discount should be applied or not. To evaluate these rules, the following functions were created:
 
-**For discount function part:
-- we had 6 qualifcation rules which is in the file attached , we made 2 functions, 1 to check if the data is qualified, and the other to calcualte the discount incase it's qualified
-- made 12 function, 6 for checking, and 6 for calculating discounts.
-- declared case class, to assign every check function and calculating discount functions as 1 element in the case class
-- made a list of objects of case class, every object has both functions
-- made a function to write the log file
-- made function to calculate the discount, incase only 1 discount then print it, incase no discounts then print 0, incase more than 1 discount, get highest 2 and calculate average
-
-
-**Team: 
-1- Mohamed Ahmed Fathy
-2- Sara Salah
-3- Islam Younis 
+Six functions to check whether the data qualifies for each rule.
+Six functions to calculate the discount based on each rule.
+A case class is used to assign each check function and discount calculation function as one element.
+A list of case class objects is created, with each object containing both functions.
+A function is created to write a log file.
+A function is created to calculate the discount. If there is only one discount, it is printed. If there are no discounts, 0 is printed. If there are more than one discounts, the highest two are used to calculate the average.
+Team
+This project was completed by the following team members:
+Mohamed Ahmed Fathy
+Sara Salah
+Islam Younis
+We hope that our project will provide an example of how to use functional programming in Scala to handle complex data processing tasks. Please feel free to contact us if you have any questions or feedback.
